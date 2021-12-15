@@ -1,0 +1,179 @@
+{% extends 'base.html' %}
+{% block title %}mclaren{% endblock %}
+{% block header %}
+<!-- This will highlight the currently selected tab in the navbar -->
+<script>
+    document.getElementById("navbarDropdown").className = "nav-link dropdown-toggle active";
+</script>
+{% endblock %}
+{% block content %}
+        <div id="div_listing_image">
+            <img class="card-img-top" src="static\img\car1.png" alt="Card image" style="text-align: start;">
+        </div>
+
+        <div class="container">
+
+            <!-- 
+            title (textbox)
+            description (larger textbox)
+            Location (textbox)
+            year (textbox)
+            make ()
+            model
+            transmission
+            body_type
+            fuel_type
+            starting bid
+        -->
+
+            <!-- Form Name -->
+            <legend>Beautiful 2018 Mclaren</legend>
+
+            <!-- Description -->
+            <div class="form-group" style="padding-top: 10px">
+                <div class="row">
+                    <div class="col-2">
+                        <p style="text-align: right;">Description:</p>
+                    </div>
+                    <div class="col-8">
+                        <p>This is my Mclaren which I have enjoyed very much over the last 2 years but now it is
+                            time to
+                            move onto something new, well maintained.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+
+            <!-- Location -->
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-2">
+                        <p style="text-align: right;">Location:</p>
+                    </div>
+                    <div class="col-8">
+                        <p>Brisbane.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Year -->
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-2">
+                        <p style="text-align: right;">Year:</p>
+                    </div>
+                    <div class="col-8">
+                        <p>2018</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Make -->
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-2">
+                        <p style="text-align: right;">Make:</p>
+                    </div>
+                    <div class="col-8">
+                        <p>Mclaren</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Model -->
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-2">
+                        <p style="text-align: right;">Model:</p>
+                    </div>
+                    <div class="col-8">
+                        <p>720S</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Transmission -->
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-2">
+                        <p style="text-align: right;">Transmission:</p>
+                    </div>
+                    <div class="col-8">
+                        <p>Automatic</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Body Type -->
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-2">
+                        <p style="text-align: right;">Body type:</p>
+                    </div>
+                    <div class="col-8">
+                        <p>Sport</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Fuel Type -->
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-2">
+                        <p style="text-align: right;">Fuel type:</p>
+                    </div>
+                    <div class="col-8">
+                        <p>Petrol</p>
+                    </div>
+                </div>
+            </div>
+            <!-- <Starting price> -->
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-2">
+                        <p style="text-align: right;">Start price:</p>
+                    </div>
+                    <div class="col-8">
+                        <p>1000000 $</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Highest Price -->
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-2">
+                        <p style="text-align: right;">Highest Price:</p>
+                    </div>
+                    <div class="col-8">
+                        <p>1500000 $</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Please a Bid -->
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-2">
+                        <input id="" name="" plaeholder="Enter bid($)" class="form-control" required="" type="number">
+                    </div>
+                    <div class="col-8">
+                        <button id="listing-button" name="listing-button" class="btn btn-success">Place Bid</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Add to watchlist -->
+            <div class="form-group">
+                <div class="row">
+                    <div class="col-2">
+                    </div>
+                    <div class="col-8">
+                        <a href="{{url_for('listing.add['id']')}}"><button id="listing-button" name="listing-button" class="btn btn-primary">Add to
+                            watchlist</button></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+{% endblock %}

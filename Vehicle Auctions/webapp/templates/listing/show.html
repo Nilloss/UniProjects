@@ -1,0 +1,210 @@
+{% extends 'listing/listingstructure.html' %}
+{% block title %}Page title goes here{% endblock %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block image %}
+<img class="card-img-top" src="{{listing.image_data}}">
+{% endblock %}
+
+{% block details %}
+<legend>{{listing.name}}</legend>
+<!-- Description -->
+<div class="form-group" style="padding-top: 10px">
+    <div class="row">
+        <div class="col-2">
+            <p style="text-align: right;">Description:</p>
+        </div>
+        <div class="col-8">
+            <p>{{listing.description}}
+            </p>
+        </div>
+    </div>
+</div>
+
+
+<!-- Year -->
+<div class="form-group">
+    <div class="row">
+        <div class="col-2">
+            <p style="text-align: right;">Year:</p>
+        </div>
+        <div class="col-8">
+            <p>{{listing.year}}</p>
+        </div>
+    </div>
+</div>
+
+<!-- Make -->
+<div class="form-group">
+    <div class="row">
+        <div class="col-2">
+            <p style="text-align: right;">Make:</p>
+        </div>
+        <div class="col-8">
+            <p>{{listing.make}}</p>
+        </div>
+    </div>
+</div>
+
+<!-- Model -->
+<div class="form-group">
+    <div class="row">
+        <div class="col-2">
+            <p style="text-align: right;">Model:</p>
+        </div>
+        <div class="col-8">
+            <p>{{listing.model}}</p>
+        </div>
+    </div>
+</div>
+
+<!-- Transmission -->
+<div class="form-group">
+    <div class="row">
+        <div class="col-2">
+            <p style="text-align: right;">Transmission:</p>
+        </div>
+        <div class="col-8">
+            <p>{{listing.transmission}}</p>
+        </div>
+    </div>
+</div>
+
+<!-- Body Type -->
+<div class="form-group">
+    <div class="row">
+        <div class="col-2">
+            <p style="text-align: right;">Body type:</p>
+        </div>
+        <div class="col-8">
+            <p>{{listing.body_type}}</p>
+        </div>
+    </div>
+</div>
+
+<!-- Fuel Type -->
+<div class="form-group">
+    <div class="row">
+        <div class="col-2">
+            <p style="text-align: right;">Fuel type:</p>
+        </div>
+        <div class="col-8">
+            <p>{{listing.fuel_type}}</p>
+        </div>
+    </div>
+</div>
+<!-- <Starting price> -->
+<div class="form-group">
+    <div class="row">
+        <div class="col-2">
+            <p style="text-align: right;">Start price:</p>
+        </div>
+        <div class="col-8">
+            <p>${{listing.starting_bid}}
+            <p>
+        </div>
+    </div>
+</div>
+
+<!-- Highest Price -->
+<div class="form-group">
+    <div class="row">
+        <div class="col-2">
+            <p style="text-align: right;">Current bid:</p>
+        </div>
+        <div class="col-8">
+            <p>${{listing.current_bid}}</p>
+        </div>
+    </div>
+</div>
+<div class="form-group">
+    <div class="row">
+        <div class="col-2">
+            <p style="text-align: right;">Closing Date:</p>
+        </div>
+        <div class="col-8">
+            <p>{{listing.closing_date}}</p>
+        </div>
+    </div>
+</div>
+
+<div class="form-group">
+    <div class="row">
+        <div class="col-2">
+            <p style="text-align: right;">Status:</p>
+        </div>
+        <div class="col-8">
+            <p>{{listing.state}}</p>
+        </div>
+    </div>
+</div>
+
+<div class="form-group">
+    <div class="row">
+        <div class="col-2">
+            <p style="text-align: right;">Bids:</p>
+        </div>
+        <div class="col-8">
+            <p>{{listing.total_bids}}</p>
+        </div>
+    </div>
+</div>
+
+<!-- Please a Bid -->
+<!-- <div class="form-group">
+    <div class="row">
+        <div class="col-2">
+            <input id="" name="" placeholder="Enter bid($)" class="form-control" required="" type="number">
+        </div>
+        <div class="col-8">
+            <a href="{{url_for('listing.bid',id=listing.id)}}">
+                <button id="listing-button" name="listing-button" class="btn btn-success">Place Bid</button>
+            </a>
+        </div>
+    </div>
+</div>  -->
+    {{wtf.quick_form(form, "/listing/{0}/bid".format(listing.id))}}
+    {% for message in get_flashed_messages() %}
+    <div class="alert alert-warning">
+        <button type="button" class="close" data-dismiss="alert">&times;</button>
+        {{ message }}
+    </div>
+    {% endfor %}
+
+{%if current_user.is_authenticated %}
+<div class="form-group">
+    <div class="row">
+        <div class="col-2">
+        </div>
+        <div class="col-8">
+            <a href="{{url_for('listing.add',id=listing.id)}}"><button id="listing-button" name="listing-button"
+                    class="btn btn-primary">Add to
+                    watchlist</button></a>
+        </div>
+    </div>
+</div>
+
+<div class="form-group">
+    <div class="row">
+        <div class="col-2">
+        </div>
+        <div class="col-8">
+            <a href="{{url_for('listing.watchlist_remove',id=listing.id)}}">
+                <button id="listing-button" name="listing-button" class="btn btn-primary">Remove from watchlist</button>
+            </a>
+        </div>
+    </div>
+</div>
+<div class="form-group">
+    <div class="row">
+        <div class="col-2">
+        </div>
+        <div class="col-8">
+            <a href="{{url_for('listing.remove', id=listing.id)}}">
+                <button id="listing-button" name="listing-button" class="btn btn-danger">Close Auction</button>
+            </a>
+        </div>
+    </div>
+</div>
+{% endif %}
+{% endblock %}

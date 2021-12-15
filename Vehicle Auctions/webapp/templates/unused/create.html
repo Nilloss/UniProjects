@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+{% block title %}Create auction{% endblock %}
+{% block header %}
+<!-- This will highlight the currently selected tab in the navbar -->
+<script>
+    document.getElementById("navbarDropdown").className = "nav-link dropdown-toggle active";
+</script>
+{% endblock %}
+{% block content %}
+<div>
+
+    <div id="div_create_image">
+        <!-- File Button -->
+        <div class="upload-box">
+            <div class="hold"><a href="#">Maximum file size 20 MB</a>
+                <span class="btn-file"> Upload Photo(s)
+                    <input type="file">
+                </span> </div>
+        </div>
+    </div>
+    
+    <!-- 
+                title (textbox)
+                description (larger textbox)
+                city (textbox)
+                year (textbox)
+                make ()
+                model
+                transmission
+                body_type
+                fuel_type
+                starting bid
+            -->
+    
+            {% import "bootstrap/wtf.html" as wtf %}
+
+              <div class="container">
+                <div class="row mt-5">
+                  <div class="col-md-12">
+            
+                    {{wtf.quick_form(form)}}
+                    
+                  </div>
+                </div>
+              </div>
+</div>
+{% endblock %}

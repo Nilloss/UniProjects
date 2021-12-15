@@ -1,0 +1,138 @@
+/* ----------------- Main structure ------------------ */
+
+
+
+/* main, body, .flex-container, #listingstructure {
+    height:100%;
+} */
+
+
+/* Title image */
+#img_title {
+    max-width: 100%;
+    width: auto\9;
+    text-align: center;
+}
+
+#div_title {
+    text-align: center;
+    color: white;
+    font-size: 30px;
+}
+
+
+header {
+    background-color: white;
+}
+
+
+main {
+    position: relative;
+    min-height: 100vh;
+}
+
+#content_wrap {
+    padding-bottom: 200px; /* this is for the footer */
+}
+
+footer {
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+    height: 200px;
+    text-align: center;
+    color: grey;
+}
+
+#navbar {
+    z-index: 1000;
+	position: -webkit-sticky;
+	position: sticky;
+	top: 0px;
+}
+
+
+/* End of main structure */
+
+
+/* Index elements */
+
+#filtersection {
+    padding-top: 10px;
+    padding-left: 35%;
+    padding-right: 35%;
+    text-align: center;
+    height: 100px;
+    border: 1px solid #ccc;
+    box-shadow: 2px 2px 6px 0px rgba(0, 0, 0, 0.3);
+}
+
+#filtersection .flex-container {
+  display: flex;
+  justify-content: space-around;
+}
+
+
+#index .flex-container {
+    flex-wrap: wrap;
+    display: flex;
+    justify-content: center;
+}
+
+.card {
+    max-width: 70%;
+    flex: 1 1 49%;
+    box-sizing: border-box;
+    border: 1px solid #ccc;
+    box-shadow: 2px 2px 6px 0px rgba(0, 0, 0, 0.3);
+    margin: 3rem .5rem .5rem .5rem;
+    padding: .5rem;
+}
+
+.img_parent{
+    overflow:hidden; 
+    display:inline-block;
+}
+
+.card-img-top {
+    width: 100%;
+}
+
+/* Create/Listing page elements */
+
+#listingstructure .flex-container {
+    min-height: 80vh;
+    display: flex;
+    align-self: stretch;
+}
+
+#listingstructure #image_section {
+    padding: 10px;
+    flex: 1 1 40%;
+    background-color: rgb(142, 143, 142);
+}
+
+#listingstructure #details_section {
+    flex: 1 1 60%;
+    background-color: lightgray;
+    padding: 50px;
+}
+
+.upload-box{
+    padding-top: 50%;
+    text-align: center;
+}
+
+/* watchlist items */
+
+#div_watchlist_item {
+    text-align: center;
+    /* position: relative; */
+    width: 500px;
+    height: 200px;
+    background-color: gray;
+}
+
+#img_watchlist {
+    width: 300px;
+}
