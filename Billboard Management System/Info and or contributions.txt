@@ -1,0 +1,7 @@
+Billboard Management System was a group project assessment for the unit 'Software Development'. The task was to develop a Client-Server application containing a control panel module for managing the billboards, server module for data control and viewer module for display or execution on billboard machines.
+
+Key Contributions:
+- TCPMessage & the TCP communication API
+- Request handling (requestHandler)
+- Authentication
+- Session handling logic
