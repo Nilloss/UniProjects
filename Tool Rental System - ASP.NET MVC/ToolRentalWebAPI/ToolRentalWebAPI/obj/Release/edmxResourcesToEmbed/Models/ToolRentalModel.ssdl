@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ToolRentalModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="__MigrationHistory">
+    <Key>
+      <PropertyRef Name="MigrationId" />
+      <PropertyRef Name="ContextKey" />
+    </Key>
+    <Property Name="MigrationId" Type="nvarchar" MaxLength="150" Nullable="false" />
+    <Property Name="ContextKey" Type="nvarchar" MaxLength="300" Nullable="false" />
+    <Property Name="Model" Type="varbinary(max)" Nullable="false" />
+    <Property Name="ProductVersion" Type="nvarchar" MaxLength="32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Customer">
+    <Key>
+      <PropertyRef Name="CustomerId" />
+    </Key>
+    <Property Name="CustomerId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CustomerName" Type="nvarchar(max)" />
+    <Property Name="Phone" Type="nvarchar(max)" />
+  </EntityType>
+  <EntityType Name="Rental">
+    <Key>
+      <PropertyRef Name="RentalId" />
+    </Key>
+    <Property Name="RentalId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="CustomerId" Type="int" Nullable="false" />
+    <Property Name="DateRented" Type="datetime" Nullable="false" />
+    <Property Name="DateReturned" Type="datetime" />
+  </EntityType>
+  <EntityType Name="RentalItem">
+    <Key>
+      <PropertyRef Name="RentalItemId" />
+    </Key>
+    <Property Name="RentalItemId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="RentalId" Type="int" Nullable="false" />
+    <Property Name="ToolId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Tool">
+    <Key>
+      <PropertyRef Name="ToolID" />
+    </Key>
+    <Property Name="ToolID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="nvarchar(max)" />
+    <Property Name="Description" Type="nvarchar(max)" />
+    <Property Name="AssetNumber" Type="int" />
+    <Property Name="Brand" Type="nvarchar(max)" />
+    <Property Name="Active" Type="bit" />
+  </EntityType>
+  <Association Name="FK_dbo_RentalItem_dbo_Rental_RentalId">
+    <End Role="Rental" Type="Self.Rental" Multiplicity="1">
+      <OnDelete Action="Cascade" />
+    </End>
+    <End Role="RentalItem" Type="Self.RentalItem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Rental">
+        <PropertyRef Name="RentalId" />
+      </Principal>
+      <Dependent Role="RentalItem">
+        <PropertyRef Name="RentalId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="ToolRentalModelStoreContainer">
+    <EntitySet Name="__MigrationHistory" EntityType="Self.__MigrationHistory" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Customer" EntityType="Self.Customer" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Rental" EntityType="Self.Rental" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RentalItem" EntityType="Self.RentalItem" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tool" EntityType="Self.Tool" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_dbo_RentalItem_dbo_Rental_RentalId" Association="Self.FK_dbo_RentalItem_dbo_Rental_RentalId">
+      <End Role="Rental" EntitySet="Rental" />
+      <End Role="RentalItem" EntitySet="RentalItem" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

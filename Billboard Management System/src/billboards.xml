@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<billboard background="#00FFFF">
-    <information colour="#00FFFF">info</information>
-    <message colour="#00FFFF">hey</message>
-    <picture url="www"/>
-</billboard>

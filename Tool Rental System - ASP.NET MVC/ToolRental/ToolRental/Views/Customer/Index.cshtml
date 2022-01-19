@@ -1,0 +1,71 @@
+﻿@model IEnumerable<ToolRental.Models.Customer>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a href="@Url.Action("Create", "Customer")" class="btn btn-default">
+        <i class="fas fa-plus"></i> Create New
+    </a>
+</p>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CustomerId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CustomerName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Phone)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.CustomerId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CustomerName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Phone)
+        </td>
+        <td>
+
+            <a href="@Url.Action("Edit", "Customer", new { id=item.CustomerId })"
+               class="btn btn-default">
+                <i class="fas fa-pencil-alt"></i> Edit
+            </a>
+            <a href="@Url.Action("Details", "Customer", new { id=item.CustomerId })"
+               class="btn btn-default">
+                <i class="fas fa-info"></i> Details
+            </a>
+            <a href="@Url.Action("Delete", "Customer", new { id=item.CustomerId })"
+               class="btn btn-default">
+                <i class="fas fa-trash"></i> Delete
+            </a>
+        </td>
+    </tr>
+    }
+
+</table>
+
+
+@section scripts
+{
+    <script>
+        $(function () {
+            var successMessage = '@TempData["SuccessMessage"]'
+            if (successMessage != '')
+                alertify.success(successMessage);
+        });
+    </script>
+}

@@ -1,6 +1,0 @@
-This was a group project for the unit 'Rapid Web Application Development' built with the Flask framework.
-
-My key contributions:
-- Most of the ORM & Data model
-- A lot of the bootstrap, forms, Jinja2 logic
-- A bit of layouting

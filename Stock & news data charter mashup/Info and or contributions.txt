@@ -1,3 +1,0 @@
-This application was an assessment item for the unit 'Cloud Computing'. The task was to consume two data API's and converge it into a common or couple of related use cases. In this instance, a news API and stock data API were consumed and parsed from a node express backend to be served to a react front end with APEX charts. The project is mostly complete data-wise, however needed more front end refining. Also would have used some refactoring and restructuring given more time.
-
-The task further required that the application would be built as a docker image to be deployed on an Ubuntu system for demonstration.
