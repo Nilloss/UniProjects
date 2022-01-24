@@ -2,6 +2,6 @@ Billboard Management System was a group project assessment for the unit 'Softwar
 
 Key Contributions:
 - TCPMessage & the TCP communication API
-- Request handling (requestHandler)
+- Request handling (server/Requests.java)
 - Authentication
 - Session handling logic
