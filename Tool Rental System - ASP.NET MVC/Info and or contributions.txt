@@ -1,0 +1,8 @@
+This was a tafe project and the purpose of the project was to build a tool rental web application.
+ToolRentalWebAPI contains all the DAL logic, ToolRental contains all the business layer logic.
+
+Tech used:
+- ASP.NET
+- Entity Framework
+- Bootstrap
+- SQLServer
